@@ -8,7 +8,6 @@ const OSContext = createContext<OSContextType | undefined>(undefined);
 export function OSProvider({ children }: { children: React.ReactNode }) {
   const [os, setOs] = useState<OSType>('macos');
   const [mobileOS, setMobileOS] = useState<MobileOSType>('ios');
-  const [wallpaper, setWallpaper] = useState<string>('/wallpapers/macos-ventura.jpg');
 
   useEffect(() => {
     const handleMount = async () => {
@@ -33,23 +32,19 @@ export function OSProvider({ children }: { children: React.ReactNode }) {
   };
 
   return (
-    <OSContext.Provider value={{ 
-      os, 
-      mobileOS, 
-      toggleOS, 
-      toggleMobileOS, 
-      wallpaper, 
-      setWallpaper 
-    }}>
-      <div className={os === 'macos' ? 'font-macos' : 'font-windows'}>
-        <div className="contents md:block hidden">
-            {children}
-        </div>
-        <div className="contents md:hidden block">
-            <div className={mobileOS === 'ios' ? 'font-ios' : 'font-android'}>
-                {children}
-            </div>
-        </div>
+    <OSContext.Provider value={{ os, mobileOS, toggleOS, toggleMobileOS }}>
+      <div
+        className={
+          os === 'macos'
+            ? mobileOS === 'ios'
+              ? 'font-macos max-md:font-ios'
+              : 'font-macos max-md:font-android'
+            : mobileOS === 'ios'
+              ? 'font-windows max-md:font-ios'
+              : 'font-windows max-md:font-android'
+        }
+      >
+        {children}
       </div>
     </OSContext.Provider>
   );

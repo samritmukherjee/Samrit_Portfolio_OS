@@ -10,6 +10,9 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Samrit Mukherjee | Portfolio OS",
   description: "A futuristic, multi-OS simulation portfolio built with Next.js and Framer Motion.",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({

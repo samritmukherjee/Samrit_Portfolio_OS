@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 const projects = [
@@ -42,11 +43,13 @@ export default function ProjectsApp() {
         >
             <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6 p-4 md:p-6 bg-gradient-to-r from-white/[0.03] to-transparent rounded-xl border border-white/[0.08] hover:border-blue-500/40 hover:bg-gradient-to-r hover:from-blue-500/10 hover:to-transparent transition-all duration-300 cursor-pointer">
               {/* Logo/Image */}
-              <div className="flex-shrink-0 p-3 rounded-lg bg-white/5 group-hover:bg-blue-500/20 transition-all duration-300 w-16 h-16 md:w-20 md:h-20 flex items-center justify-center overflow-hidden">
-                <img 
-                  src={project.image} 
-                  alt={project.title} 
-                  className="w-full h-full object-cover rounded"
+              <div className="relative flex-shrink-0 rounded-lg bg-white/5 group-hover:bg-blue-500/20 transition-all duration-300 w-16 h-16 md:w-20 md:h-20 overflow-hidden">
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className="object-cover p-3"
+                  sizes="80px"
                 />
               </div>
               

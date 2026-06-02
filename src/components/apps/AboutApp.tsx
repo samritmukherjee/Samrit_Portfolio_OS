@@ -1,7 +1,9 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { BarChart3, Briefcase, Medal, Trophy } from 'lucide-react';
 
 export default function AboutApp() {
   const stats = [
@@ -10,9 +12,9 @@ export default function AboutApp() {
   ];
 
   const accomplishments = [
-    { title: '🥇 Winner', event: 'DoubleSlash 4.0', org: 'Jadavpur University', year: '2026' },
-    { title: '🥇 Winner', event: 'ShowcaseX Techsprint', org: 'RCC IIT', year: '2026' },
-    { title: '🏆 Track Winner', event: 'Hello World Hacks', org: 'RCC IIT', year: '2025' },
+    { title: 'Winner', icon: Medal, event: 'DoubleSlash 4.0', org: 'Jadavpur University', year: '2026' },
+    { title: 'Winner', icon: Medal, event: 'ShowcaseX Techsprint', org: 'RCC IIT', year: '2026' },
+    { title: 'Track Winner', icon: Trophy, event: 'Hello World Hacks', org: 'RCC IIT', year: '2025' },
   ];
 
   return (
@@ -27,10 +29,12 @@ export default function AboutApp() {
         >
           <div className="absolute -inset-2 bg-gradient-to-br from-blue-600/30 to-purple-600/30 rounded-[2.5rem] blur-xl opacity-50 group-hover:opacity-100 transition duration-700" />
           <div className="relative w-44 h-44 md:w-60 md:h-60 rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl bg-[#1a1a1a]">
-            <img 
-              src="/wallpapers/my image.jpeg" 
-              alt="Samrit Mukherjee" 
-              className="w-full h-full object-cover"
+            <Image
+              src="/wallpapers/my image.jpeg"
+              alt="Samrit Mukherjee"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 176px, 240px"
             />
             {/* Organic Overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
@@ -67,7 +71,8 @@ export default function AboutApp() {
             transition={{ delay: 0.3 }}
             className="text-blue-400/80 font-medium mt-6 flex items-center gap-2"
           >
-            <span className="text-lg">💼</span> Open for internship opportunities
+            <Briefcase size={18} className="shrink-0" />
+            Open for internship opportunities
           </motion.p>
         </div>
       </div>
@@ -94,7 +99,7 @@ export default function AboutApp() {
                             <p className="text-4xl font-black tracking-tighter text-white group-hover:text-blue-400 transition-colors">{stat.value}</p>
                         </div>
                         <div className="p-4 rounded-2xl bg-white/[0.02] text-white/20 group-hover:scale-110 transition-transform">
-                             📊
+                          <BarChart3 size={28} strokeWidth={1.5} />
                         </div>
                     </motion.div>
                 ))}
@@ -115,11 +120,13 @@ export default function AboutApp() {
                         transition={{ delay: 0.5 + i * 0.1 }}
                         className="relative p-6 bg-white/[0.02] rounded-3xl border border-white/[0.03] flex items-center gap-6 group hover:border-white/10 transition-all"
                     >
-                        <div className="text-2xl group-hover:scale-125 transition-transform duration-500">{item.title.split(' ')[0]}</div>
+                        <div className="text-amber-400 group-hover:scale-125 transition-transform duration-500">
+                          <item.icon size={28} strokeWidth={1.5} />
+                        </div>
                         <div className="flex-1">
                             <div className="flex justify-between items-start">
                                 <h3 className="font-bold text-lg text-white/90 group-hover:text-white transition-colors">
-                                    {item.event}
+                                    {item.title} — {item.event}
                                 </h3>
                                 <span className="text-[10px] font-black text-white/20 tracking-widest">{item.year}</span>
                             </div>

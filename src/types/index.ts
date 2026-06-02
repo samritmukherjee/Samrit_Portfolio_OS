@@ -25,8 +25,6 @@ export interface OSContextType {
   mobileOS: MobileOSType;
   toggleOS: () => void;
   toggleMobileOS: () => void;
-  wallpaper: string;
-  setWallpaper: (wp: string) => void;
 }
 
 export interface WindowContextType {

@@ -262,29 +262,12 @@ const WindowFrame = React.memo(({ window: win, children }: WindowFrameProps) => 
           {children}
         </div>
 
-          {/* Resize Indicator - Bottom Right Corner (Visual Affordance) */}
-          {!win.isMaximized && !isMobile && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: isResizing ? 1 : 0 }}
-              transition={{ duration: 0.2 }}
-              className="absolute bottom-0 right-0 pointer-events-none z-30"
-            >
+          {!win.isMaximized && !isMobile && isResizing && (
+            <div className="absolute bottom-0 right-0 pointer-events-none z-30">
               <div className="relative w-6 h-6 p-1">
                 <div className="absolute bottom-1 right-1 w-3 h-3 border-r-2 border-b-2 border-blue-500/60 rounded-sm opacity-75" />
               </div>
-            </motion.div>
-          )}
-
-          {/* Resize Handle Hover Indicator - Shows resizable affordance */}
-          {!win.isMaximized && !isMobile && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 0 }}
-              className="absolute -bottom-3 -right-3 pointer-events-none z-20"
-            >
-              <div className="w-6 h-6 rounded-full border border-blue-500/40 group-hover:border-blue-500/80 group-hover:bg-blue-500/10 transition-all duration-200" />
-            </motion.div>
+            </div>
           )}
         </motion.div>
       </Rnd>

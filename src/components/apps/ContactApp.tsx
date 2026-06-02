@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail } from 'lucide-react';
+import { Github, Linkedin, Mail, Pin } from 'lucide-react';
 import { SOCIALS } from '@/constants';
 
 interface SocialLink {
@@ -58,7 +58,10 @@ export default function ContactApp() {
         className="w-full max-w-2xl p-8 bg-gradient-to-br from-blue-600/10 to-purple-600/10 rounded-3xl border border-white/[0.05] backdrop-blur-3xl ring-1 ring-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
       >
         <div className="text-center space-y-2">
-          <p className="text-lg font-bold text-blue-400">📌 Currently Open for Internship Offers</p>
+          <p className="text-lg font-bold text-blue-400 flex items-center justify-center gap-2">
+            <Pin size={18} className="shrink-0" />
+            Currently Open for Internship Offers
+          </p>
           <p className="text-white/50 text-sm">Excited to work on innovative projects and grow my skills with industry professionals.</p>
         </div>
       </motion.div>
