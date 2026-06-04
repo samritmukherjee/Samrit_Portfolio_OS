@@ -51,7 +51,7 @@ The entire UI is a custom desktop environment—nothing imported from OS librari
 
 ---
 
-## 🎯 Why I Made This?
+## 🎯 Why This?
 
 Because a portfolio is supposed to showcase who you are. Not just as a developer, but as a *creative thinker*. Someone willing to build something unconventional. Someone who understands that great design isn't just making things look pretty—it's about creating experiences that are memorable.
 
